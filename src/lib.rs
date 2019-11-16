@@ -377,6 +377,15 @@ pub trait KeyboardControllable {
     fn key_click(&mut self, key: Key);
 }
 
+/// Listener to user input events.
+pub trait EventListener {
+    /// Mouse event to handle.
+    fn register_mouse_event(&mut self, button: MouseButton);
+
+    /// Returns the registered events.
+    fn mouse_events(&self) -> Vec<MouseButton>;
+}
+
 impl Enigo {
     /// Constructs a new `Enigo` instance.
     ///

@@ -1,6 +1,6 @@
 extern crate libc;
 
-use {Key, KeyboardControllable, MouseButton, MouseControllable};
+use {EventListener, Key, KeyboardControllable, MouseButton, MouseControllable};
 
 use self::libc::{c_char, c_int, c_void, useconds_t};
 use std::{borrow::Cow, ffi::CString, ptr};
@@ -248,5 +248,15 @@ impl KeyboardControllable for Enigo {
                 self.delay as useconds_t,
             );
         }
+    }
+}
+
+impl EventListener for Enigo {
+    fn register_mouse_event(&mut self, button: MouseButton) {
+        unimplemented!("Todo")
+    }
+
+    fn mouse_events(&self) -> Vec<MouseButton> {
+        unimplemented!("Todo")
     }
 }
